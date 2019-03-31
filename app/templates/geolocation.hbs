@@ -1,0 +1,56 @@
+<div id="title">Encontre Sua Localização</div>
+
+<div class="body2">
+    <div class="form-horizontal form-group form-group-md row"><br>
+        <div class="col-xs-offset-1 col-sm-6 col-md-4">
+            <button class="btn btn-success btn-lg btn-block" {{action "searchUrlLocation"}}>Buscar Minha
+                Localização</button> <br>
+            <button class="btn btn-danger btn-lg btn-block" {{action "reset"}}>Resetar</button><br>
+        </div>
+    </div>
+    {{#if responseMessage}}
+    <div class="alert alert-success">{{responseMessage}}</div>
+    {{/if}}
+
+    <div class="body2">
+
+        {{#if response}}
+        <div id="title2">Localização Encontrada</div>
+        <table id="locationTable" align="center" class="table table-striped empty">
+            <tbody>
+                <tr>
+                    <td class="field-ip">IP</td>
+                    <td>{{response.query}}</td>
+                </tr>
+                <tr>
+                    <td class="field-country">Country</td>
+                    <td>{{response.country}}</td>
+                </tr>
+                <tr>
+                    <td class="field-region">Region</td>
+                    <td>{{response.region}}</td>
+                </tr>
+                <tr>
+                    <td class="field-city">City</td>
+                    <td>{{response.city}}</td>
+                </tr>
+                <tr>
+                    <td class="field-timezone">TimeZone</td>
+                    <td>{{response.timezone}}</td>
+                </tr>
+                <tr>
+                    <td class="field-lat">Latitude</td>
+                    <td>{{response.lat}}</td>
+                </tr>
+                <tr>
+                    <td class="field-lon">Longitude</td>
+                    <td>{{response.lon}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        {{g-map center=(hash lat=response.lat lng=response.lon) zoom=16}}
+
+        {{/if}}
+    </div>
+</div>

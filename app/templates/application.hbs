@@ -1,0 +1,26 @@
+<div class="container">
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        {{#link-to 'index' class="navbar-brand"}}GeoLocation{{/link-to}}
+      </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="nav navbar-nav">
+          {{#link-to 'geolocation' tagName="li"}}<a href="">My GeoLocation</a>{{/link-to}}
+          {{#link-to 'urlgeolocation' tagName="li"}}<a href="">URL GeoLocation</a>{{/link-to}}
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+  {{outlet}}
+</div>
